@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>자기소개</title>
+  <!-- Bootstrap CSS (라이브러리) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --pastel-blue:   #A8D8FF;
+      --pastel-green:  #B7E4C7;
+      --pastel-purple: #D6C1FF;
+      --pastel-pink:   #FFC9DE;
+      --pastel-yellow: #FFE8A3;
+      --text-dark:     #2B2D42;
+      --soft-border:   rgba(0,0,0,0.06);
+    }
+
+    body{ color: var(--text-dark); background: #f8f9fb; }
+
+    /* 공통 카드(둥근 사각형, 파스텔톤 포인트 라인) */
+    .card-pastel{
+      border: 1px solid var(--soft-border);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    /* 좌측 포인트 라인(파스텔) */
+    .accent-left{
+      border-left: 10px solid var(--accent, var(--pastel-blue));
+    }
+
+    /* 제목 스타일 */
+    .section-title{
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    /* 파스텔 버튼: 텍스트는 하얀색 */
+    .btn-pastel{
+      color: #fff !important;
+      border: none;
+    }
+    .btn-pastel-blue{ background: var(--pastel-blue); }
+    .btn-pastel-green{ background: var(--pastel-green); }
+    .btn-pastel-purple{ background: var(--pastel-purple); }
+    .btn-pastel-pink{ background: var(--pastel-pink); }
+    .btn-pastel-yellow{ background: var(--pastel-yellow); }
+    .btn-pastel:hover{ filter: brightness(0.92); color:#fff !important; }
+
+    /* 강점/취향: 제목만 보이다가 호버 시 내용이 아래로 펼쳐져서 밀어냄 */
+    .reveal-card{
+      border: 1px solid var(--soft-border);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+    .reveal-header{
+      cursor: default; /* 제목만 노출 */
+      padding: 1rem 1.25rem;
+      background: var(--accent-bg, #ffffff);
+      border-left: 10px solid var(--accent, var(--pastel-pink));
+    }
+    .reveal-header h3{
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 800;
+    }
+    .reveal-content{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      padding: 0 1.25rem;
+    }
+    .reveal-card:hover .reveal-content{
+      max-height: 1800px; /* 충분히 크게 지정해 자연스럽게 펼침 */
+      padding: 0.75rem 1.25rem 1.25rem;
+      opacity: 1;
+    }
+
+    /* 리스트 여백 보정 */
+    .reveal-content ul{ margin-bottom: 0.75rem; }
+    .reveal-content li + li{ margin-top: 0.25rem; }
+
+    /* 작은 캡션 */
+    .caption{ color: #6b7280; font-size: 0.925rem; }
+  </style>
+</head>
+<body>
+
+  <div class="container py-4 py-md-5">
+
+    <header class="mb-4 mb-md-5 text-center">
+      <h1 class="section-title display-6">자기소개</h1>
+      <p class="caption mb-0">파스텔톤 카드로 정리된 소개 페이지</p>
+    </header>
+
+    <!-- 1) 자기소개 -->
+    <section class="mb-3">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-blue);">
+        <h2 class="h5 fw-bold mb-2">자기소개</h2>
+        <p class="mb-0">
+          안녕하세요. 일본에서 일하다가 한국에 귀국해 교육을 받고 있습니다.
+          잘 부탁드립니다. 저의 강점은 끈기있는 점, 포기하지 않는 점이고,
+          지금은 이해할 수 없지만 논리로 구성되어 생각하게 만드는 것들(네트워크, 논문, 게임)이 제 취향입니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2) 대상 -->
+    <section class="mb-3">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-green);">
+        <h2 class="h5 fw-bold mb-2">대상</h2>
+        <p class="mb-0">
+          자기소개를 할 앞으로의 관계있는 많은 사람들
+        </p>
+      </div>
+    </section>
+
+    <!-- 3) 목표 -->
+    <section class="mb-4">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-purple);">
+        <h2 class="h5 fw-bold mb-2">목표</h2>
+        <p class="mb-3">
+          일을 지속적으로 안정적으로 할 수 있도록 이론적, 실무적 능력을 갖춘 신입사원역량의 취업입니다.
+        </p>
+        <a href="mailto:contact@example.com" class="btn btn-pastel btn-pastel-blue rounded-pill px-4">
+          문의하기
+        </a>
+      </div>
+    </section>
+
+    <!-- 강점 / 취향: 제목만 먼저 보이고, 호버 시 내용이 아래로 펼쳐져서 '밀어냄' -->
+    <section class="mb-5">
+      <!-- 강점 -->
+      <div class="reveal-card mb-3" style="--accent: var(--pastel-pink); --accent-bg: #ffeef5;">
+        <div class="reveal-header">
+          <h3>강점</h3>
+        </div>
+        <div class="reveal-content">
+          <h4 class="h6 fw-bold mt-2">끈기 있는 이유</h4>
+          <ul>
+            <li><strong>상황:</strong> 고등학교 시절 N1 자격증으로 대학에 입학했으나, 일본어를 제외하고 낮은 점수를 얻음.</li>
+            <li><strong>행동:</strong> 일본 취업 후, 일과 밤의 복기 과정을 통해 일상과 대학에서 배운 어학·문화를 차차 이해했고,
+              낮은 성적이었던 수학에도 관심을 갖게 됨.</li>
+            <li><strong>결과/근거:</strong> 노력하면 지능과 이해가 성장한다는 것을 체득.
+              아래 실무 경험으로 이를 뒷받침:
+              <ul>
+                <li>화장품회사 매출 프로그램 PoC 과정 컴파일 및 코어덤프 대응</li>
+                <li>냉수(냉각수리) 관리시스템 사양 기반 예산적산, 레지메, 프로젝트 등록, 마일스톤 기능/화면 구성</li>
+                <li>예산적산 데이터 정렬 등 기능 구현 및 테스트</li>
+                <li>인사관리프로그램 일부 기능 개발·버그 수정·배포(팀 단위)
+                  - 사원관리, 프로젝트 관리, 경비관리, 근무관리, 급료관리, 게시판</li>
+                <li>우체국 은행 10년 정기 프로젝트 일부 기능 수정 및 단체/통합 테스트</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4 class="h6 fw-bold mt-3">포기하지 않는 이유</h4>
+          <ul>
+            <li><strong>상황:</strong> 1년 5개월의 실무 후 학원에 복귀했더니 새로 배울 것이 많아 과제가 늦어지고 수업을 간신히 따라감.
+              수업·과제·논문 구상으로 오버플로우를 겪고 인간관계 고민도 존재.</li>
+            <li><strong>행동:</strong> 민폐를 끼치지 않도록 기여/얻은 바의 균형을 계산하며, 프로젝트 참여와 과제 제작에 꾸준히 노력.</li>
+            <li><strong>근거:</strong> 오늘/내일(9/15~16) 과제를 제출한다면 그것이 포기하지 않았다는 증거.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 취향 -->
+      <div class="reveal-card" style="--accent: var(--pastel-yellow); --accent-bg: #fff7d1;">
+        <div class="reveal-header">
+          <h3>취향</h3>
+        </div>
+        <div class="reveal-content">
+          <h4 class="h6 fw-bold mt-2">생각하게 만드는 것들</h4>
+          <ul>
+            <li><strong>상황:</strong> 어려서부터 이해가 안 되더라도 외국서적·논문·기술서를 읽으며 사고를 즐김.</li>
+            <li><strong>행동:</strong> 일본에서 회사 일을 하며 회로부터 AI까지 이어지는 이해 구조에 관심을 확장.</li>
+            <li><strong>근거:</strong> Branch education, coredump 등 유튜브 채널에서 생각을 뒷받침하는 영상을 접했고,
+              Hosino Lina의 리눅스 GPU 펌웨어 개발 영상(현재는 비공개) 등으로 이해의 폭을 넓힘.
+              예전엔 이해 못했던 책들의 내용을 이제는 인식할 수 있게 되었고,
+              그 모든 것을 잇기 위해 대학과정 이상의 수학적 접근이 필요함을 자각.</li>
+          </ul>
+          <p class="mb-0"><strong>선호 분야:</strong> 네트워크, 논문, 게임(논리로 구성되어 사고를 자극하는 것들)</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
