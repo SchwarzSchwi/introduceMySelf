@@ -10,25 +10,25 @@
   <style>
     :root{
       --black-color:   #000000;
-      --pastel-blue:   #A8D8FF;
-      --pastel-green:  #B7E4C7;
-      --pastel-purple: #020202;
-      --pastel-pink:   #FFC9DE;
-      --pastel-yellow: #FFE8A3;
+      --pastel-blue:   #000000; /* 모든 파스텔톤을 검은색으로 */
+      --pastel-green:  #000000;
+      --pastel-purple: #000000;
+      --pastel-pink:   #000000;
+      --pastel-yellow: #000000;
       --text-dark:     #2B2D42;
       --soft-border:   rgba(0,0,0,0.06);
     }
 
     body{ color: var(--text-dark); background: #f8f9fb; }
 
-    /* 공통 카드(둥근 사각형, 파스텔톤 포인트 라인) */
+    /* 공통 카드(둥근 사각형, 포인트 라인) */
     .card-pastel{
       border: 1px solid var(--soft-border);
       border-radius: 1rem;
       background: #fff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
-    /* 좌측 포인트 라인(파스텔) */
+    /* 좌측 포인트 라인 */
     .accent-left{
       border-left: 10px solid var(--accent, var(--pastel-blue));
     }
@@ -39,7 +39,7 @@
       letter-spacing: -0.2px;
     }
 
-    /* 파스텔 버튼: 텍스트는 하얀색 */
+    /* 버튼(현재 사용 안 함) */
     .btn-pastel{
       color: #fff !important;
       border: none;
@@ -125,12 +125,10 @@
     <section class="mb-4">
       <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--black-color);">
         <h2 class="h5 fw-bold mb-2">목표</h2>
-        <p class="mb-3">
+        <p class="mb-0">
           일을 지속적으로 안정적으로 할 수 있도록 이론적, 실무적 능력을 갖춘 신입사원역량의 취업입니다.
         </p>
-        <a href="mailto:contact@example.com" class="btn btn-pastel btn-pastel-blue rounded-pill px-4">
-          문의하기
-        </a>
+        <!-- 문의하기 버튼 삭제됨 -->
       </div>
     </section>
 
