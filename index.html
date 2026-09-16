@@ -9,25 +9,26 @@
 
   <style>
     :root{
-      --pastel-blue:   #A8D8FF;
-      --pastel-green:  #B7E4C7;
-      --pastel-purple: #D6C1FF;
-      --pastel-pink:   #FFC9DE;
-      --pastel-yellow: #FFE8A3;
+      --black-color:   #000000;
+      --pastel-blue:   #000000; /* 모든 파스텔톤을 검은색으로 */
+      --pastel-green:  #000000;
+      --pastel-purple: #000000;
+      --pastel-pink:   #000000;
+      --pastel-yellow: #000000;
       --text-dark:     #2B2D42;
       --soft-border:   rgba(0,0,0,0.06);
     }
 
     body{ color: var(--text-dark); background: #f8f9fb; }
 
-    /* 공통 카드(둥근 사각형, 파스텔톤 포인트 라인) */
+    /* 공통 카드(둥근 사각형, 포인트 라인) */
     .card-pastel{
       border: 1px solid var(--soft-border);
       border-radius: 1rem;
       background: #fff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
-    /* 좌측 포인트 라인(파스텔) */
+    /* 좌측 포인트 라인 */
     .accent-left{
       border-left: 10px solid var(--accent, var(--pastel-blue));
     }
@@ -38,7 +39,7 @@
       letter-spacing: -0.2px;
     }
 
-    /* 파스텔 버튼: 텍스트는 하얀색 */
+    /* 버튼(현재 사용 안 함) */
     .btn-pastel{
       color: #fff !important;
       border: none;
@@ -95,25 +96,24 @@
   <div class="container py-4 py-md-5">
 
     <header class="mb-4 mb-md-5 text-center">
-      <h1 class="section-title display-6">자기소개</h1>
-      <p class="caption mb-0">파스텔톤 카드로 정리된 소개 페이지</p>
+      <h1 class="section-title display-6">SKT ALEPH 1차과제 제출</h1>
     </header>
 
     <!-- 1) 자기소개 -->
     <section class="mb-3">
-      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-blue);">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--black-color);">
         <h2 class="h5 fw-bold mb-2">자기소개</h2>
         <p class="mb-0">
           안녕하세요. 일본에서 일하다가 한국에 귀국해 교육을 받고 있습니다.
           잘 부탁드립니다. 저의 강점은 끈기있는 점, 포기하지 않는 점이고,
-          지금은 이해할 수 없지만 논리로 구성되어 생각하게 만드는 것들(네트워크, 논문, 게임)이 제 취향입니다.
+          지금은 이해할 수 없지만 논리로 구성되어 생각하게 만드는 것들이 제 취향입니다.
         </p>
       </div>
     </section>
 
     <!-- 2) 대상 -->
     <section class="mb-3">
-      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-green);">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--black-color);">
         <h2 class="h5 fw-bold mb-2">대상</h2>
         <p class="mb-0">
           자기소개를 할 앞으로의 관계있는 많은 사람들
@@ -123,21 +123,19 @@
 
     <!-- 3) 목표 -->
     <section class="mb-4">
-      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--pastel-purple);">
+      <div class="card-pastel accent-left p-3 p-md-4" style="--accent: var(--black-color);">
         <h2 class="h5 fw-bold mb-2">목표</h2>
-        <p class="mb-3">
+        <p class="mb-0">
           일을 지속적으로 안정적으로 할 수 있도록 이론적, 실무적 능력을 갖춘 신입사원역량의 취업입니다.
         </p>
-        <a href="mailto:contact@example.com" class="btn btn-pastel btn-pastel-blue rounded-pill px-4">
-          문의하기
-        </a>
+        <!-- 문의하기 버튼 삭제됨 -->
       </div>
     </section>
 
     <!-- 강점 / 취향: 제목만 먼저 보이고, 호버 시 내용이 아래로 펼쳐져서 '밀어냄' -->
     <section class="mb-5">
       <!-- 강점 -->
-      <div class="reveal-card mb-3" style="--accent: var(--pastel-pink); --accent-bg: #ffeef5;">
+      <div class="reveal-card mb-3" style="--accent: var(--black-color); --accent-bg: #f0f0f0;">
         <div class="reveal-header">
           <h3>강점</h3>
         </div>
@@ -171,7 +169,7 @@
       </div>
 
       <!-- 취향 -->
-      <div class="reveal-card" style="--accent: var(--pastel-yellow); --accent-bg: #fff7d1;">
+      <div class="reveal-card" style="--accent: var(--black-color); --accent-bg: #f0f0f0;">
         <div class="reveal-header">
           <h3>취향</h3>
         </div>
