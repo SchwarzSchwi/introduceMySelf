@@ -13,6 +13,8 @@
 
 ## ② 왜 그걸 골랐나
 
+등록 시 `preferredAuthenticatorType: "localDevice"`로 기기 자체 인증기(Windows Hello 등)를 우선 요청합니다. 서버에는 공개키만 저장되고 개인키는 기기 안에 남습니다. Windows Hello PIN이 설정되지 않은 PC에서는 등록이 실패할 수 있습니다.
+
 Vercel 정적 페이지와 서버리스 함수에서 동작하고, 서버가 challenge·origin·RP ID·서명을 검증하게 하기 위해서입니다. challenge는 5분 만료이며 인증 요청마다 새로 생성됩니다. 등록과 로그인 검증에서 사용자 확인(User Verification)을 요구합니다. 데이터와 공개키, challenge, 세션은 Neon Postgres에 둡니다.
 
 ## ③ 어디를 어떻게 고쳤나
