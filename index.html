@@ -46,44 +46,10 @@
     .btn-pastel-yellow{ background: var(--pastel-yellow); }
     .btn-pastel:hover{ filter: brightness(0.92); color:#fff !important; }
 
-    /* 강점/취향: 제목만 보이다가 호버 시 내용이 아래로 펼쳐져서 밀어냄 */
-    .reveal-card{
-      border: 1px solid var(--soft-border);
-      border-radius: 1rem;
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      overflow: hidden;
-    }
-    .reveal-header{
-      cursor: default; /* 제목만 노출 */
-      padding: 1rem 1.25rem;
-      background: var(--accent-bg, #ffffff);
-      border-left: 10px solid var(--accent, var(--pastel-pink));
-    }
-    .reveal-header h3{
-      margin: 0;
-      font-size: 1.125rem;
-      font-weight: 800;
-    }
-    .reveal-content{
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      padding: 0 1.25rem;
-    }
-    .reveal-card:hover .reveal-content{
-      max-height: 1800px; /* 충분히 크게 지정해 자연스럽게 펼침 */
-      padding: 0.75rem 1.25rem 1.25rem;
-      opacity: 1;
-    }
-
-    /* 리스트 여백 보정 */
-    .reveal-content ul{ margin-bottom: 0.75rem; }
-    .reveal-content li + li{ margin-top: 0.25rem; }
-
-    /* 작은 캡션 */
     .caption{ color: #6b7280; font-size: 0.925rem; }
+    .private-panel{ border: 1px solid var(--soft-border); border-radius: 1rem; background: #fff; }
+    .private-item{ border-left: 4px solid #ffc9de; padding: 0.75rem 1rem; background: #fff9fc; }
+    .status{ min-height: 1.5rem; }
   </style>
 </head>
 <body>
@@ -127,65 +93,57 @@
       </div>
     </section>
 
-    <!-- 강점 / 취향: 제목만 먼저 보이고, 호버 시 내용이 아래로 펼쳐져서 '밀어냄' -->
-    <section class="mb-5">
-      <!-- 강점 -->
-      <div class="reveal-card mb-3" style="--accent: var(--black-color); --accent-bg: #f0f0f0;">
-        <div class="reveal-header">
-          <h3>강점</h3>
+    <section class="private-panel p-3 p-md-4 mb-5" aria-labelledby="private-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div>
+          <h2 id="private-title" class="h5 fw-bold mb-1">비공개 취향</h2>
+          <p class="caption mb-0">공개 소개와 분리되어 있으며, 패스키로 인증한 계정의 자료만 서버에서 가져옵니다.</p>
         </div>
-        <div class="reveal-content">
-          <h4 class="h6 fw-bold mt-2">끈기 있는 이유</h4>
-          <ul>
-            <li><strong>상황:</strong> 고등학교 시절 N1 자격증으로 대학에 입학했으나, 일본어를 제외하고 낮은 점수를 얻음.</li>
-            <li><strong>행동:</strong> 일본 취업 후, 일과 밤의 복기 과정을 통해 일상과 대학에서 배운 어학·문화를 차차 이해했고,
-              낮은 성적이었던 수학에도 관심을 갖게 됨.</li>
-            <li><strong>결과/근거:</strong> 노력하면 지능과 이해가 성장한다는 것을 체득.
-              아래 실무 경험으로 이를 뒷받침:
-              <ul>
-                <li>화장품회사 매출 프로그램 PoC 과정 컴파일 및 코어덤프 대응</li>
-                <li>냉수(냉각수리) 관리시스템 사양 기반 예산적산, 레지메, 프로젝트 등록, 마일스톤 기능/화면 구성</li>
-                <li>예산적산 데이터 정렬 등 기능 구현 및 테스트</li>
-                <li>인사관리프로그램 일부 기능 개발·버그 수정·배포(팀 단위)
-                  - 사원관리, 프로젝트 관리, 경비관리, 근무관리, 급료관리, 게시판</li>
-                <li>우체국 은행 10년 정기 프로젝트 일부 기능 수정 및 단체/통합 테스트</li>
-              </ul>
-            </li>
-          </ul>
-
-          <h4 class="h6 fw-bold mt-3">포기하지 않는 이유</h4>
-          <ul>
-            <li><strong>상황:</strong> 1년 5개월의 실무 후 학원에 복귀했더니 새로 배울 것이 많아 과제가 늦어지고 수업을 간신히 따라감.
-              수업·과제·논문 구상으로 오버플로우를 겪고 인간관계 고민도 존재.</li>
-            <li><strong>행동:</strong> 민폐를 끼치지 않도록 기여/얻은 바의 균형을 계산하며, 프로젝트 참여와 과제 제작에 꾸준히 노력.</li>
-            <li><strong>근거:</strong> 오늘/내일(9/15~16) 과제를 제출한다면 그것이 포기하지 않았다는 증거.</li>
-          </ul>
-        </div>
+        <span id="auth-state" class="badge text-bg-secondary">로그아웃 상태</span>
       </div>
-
-      <!-- 취향 -->
-      <div class="reveal-card" style="--accent: var(--black-color); --accent-bg: #f0f0f0;">
-        <div class="reveal-header">
-          <h3>취향</h3>
+      <p id="status" class="status mt-3 mb-2" role="status" aria-live="polite"></p>
+      <div id="auth-controls">
+        <form id="login-form" class="row g-2 align-items-end mb-3">
+          <div class="col-sm-5">
+            <label for="login-name" class="form-label">계정 이름</label>
+            <input id="login-name" class="form-control" maxlength="60" autocomplete="username webauthn" required>
+          </div>
+          <div class="col-sm-auto"><button class="btn btn-primary" type="submit">패스키로 로그인</button></div>
+        </form>
+        <details>
+          <summary class="fw-semibold">새 계정과 첫 패스키 등록</summary>
+          <form id="register-form" class="row g-2 mt-2">
+            <div class="col-md-6">
+              <label for="register-name" class="form-label">계정 이름 (예: 계정 A)</label>
+              <input id="register-name" class="form-control" maxlength="60" required>
+            </div>
+            <div class="col-md-6">
+              <label for="credential-name" class="form-label">패스키 이름 (예: 노트북)</label>
+              <input id="credential-name" class="form-control" maxlength="60" required>
+            </div>
+            <p class="caption mb-0">실제 개인정보 대신 만든 예시 문장을 입력하세요. 각 계정의 첫 등록에는 비공개 항목 세 개가 필요합니다.</p>
+            <div class="col-12"><label for="item-one" class="form-label">비공개 항목 1</label><input id="item-one" class="form-control" maxlength="500" required></div>
+            <div class="col-12"><label for="item-two" class="form-label">비공개 항목 2</label><input id="item-two" class="form-control" maxlength="500" required></div>
+            <div class="col-12"><label for="item-three" class="form-label">비공개 항목 3</label><input id="item-three" class="form-control" maxlength="500" required></div>
+            <div class="col-12"><button class="btn btn-outline-primary" type="submit">계정과 패스키 등록</button></div>
+          </form>
+        </details>
+      </div>
+      <div id="private-view" hidden>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button id="add-passkey" class="btn btn-outline-primary btn-sm" type="button">이 계정에 패스키 추가</button>
+          <button id="logout" class="btn btn-outline-secondary btn-sm" type="button">로그아웃</button>
         </div>
-        <div class="reveal-content">
-          <h4 class="h6 fw-bold mt-2">생각하게 만드는 것들</h4>
-          <ul>
-            <li><strong>상황:</strong> 어려서부터 이해가 안 되더라도 외국서적·논문·기술서를 읽으며 사고를 즐김.</li>
-            <li><strong>행동:</strong> 일본에서 회사 일을 하며 회로부터 AI까지 이어지는 이해 구조에 관심을 확장.</li>
-            <li><strong>근거:</strong> Branch education, coredump 등 유튜브 채널에서 생각을 뒷받침하는 영상을 접했고,
-              Hosino Lina의 리눅스 GPU 펌웨어 개발 영상(현재는 비공개) 등으로 이해의 폭을 넓힘.
-              예전엔 이해 못했던 책들의 내용을 이제는 인식할 수 있게 되었고,
-              그 모든 것을 잇기 위해 대학과정 이상의 수학적 접근이 필요함을 자각.</li>
-          </ul>
-          <p class="mb-0"><strong>선호 분야:</strong> 네트워크, 논문, 게임(논리로 구성되어 사고를 자극하는 것들)</p>
-        </div>
+        <h3 class="h6 fw-bold">내 비공개 항목</h3>
+        <div id="private-items" class="d-grid gap-2 mb-4"></div>
+        <h3 class="h6 fw-bold">등록된 패스키</h3>
+        <ul id="credential-list" class="list-group"></ul>
       </div>
     </section>
 
   </div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
