@@ -58,6 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     userName: accountName,
     userDisplayName: accountName,
     attestationType: "none",
+    preferredAuthenticatorType: "localDevice",
     excludeCredentials: existingCredentials.map((credential) => ({
       id: String(credential.credential_id),
       transports: credential.transports as AuthenticatorTransport[],
